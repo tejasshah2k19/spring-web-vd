@@ -1,0 +1,21 @@
+JSTL -> 
+
+		java standard tag lib 
+		
+		
+		<b> <i> => HTML 
+		<forEach> 
+		<if>
+		<catch>
+		
+			core 
+			function
+			sql
+			xml
+			format 
+			
+		
+		
+		1) jstl jar -> pom.xml
+		2) jsp use -> import 
+		
