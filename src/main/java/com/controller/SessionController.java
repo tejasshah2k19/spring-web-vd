@@ -1,8 +1,12 @@
 package com.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -36,6 +40,15 @@ public class SessionController {
 		System.out.println(user.getEmail());
 		System.out.println(user.getPassword());
 		return "Login";// jsp
+	}
+
+	@GetMapping("/listuser")
+	public String listUser(Model model) {
+
+		// query -> read
+		List<UserBean> users = stmt.query("select * from users", new BeanPropertyRowMapper<UserBean>(UserBean.class));
+		model.addAttribute("users",users);
+		return "ListUser";
 	}
 
 }
